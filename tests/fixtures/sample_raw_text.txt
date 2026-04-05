@@ -1,0 +1,2 @@
+Discovered that auto-dream consolidation works best when run every 5-10 sessions.
+Too frequent = churn. Too infrequent = stale knowledge.
