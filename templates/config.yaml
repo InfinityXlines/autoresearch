@@ -1,19 +1,13 @@
 version: 1
 shared_wiki_path: ~/shared-memory/wiki/
 
+# Add your agent names here. Each agent gets their own knowledge base.
+# setup.sh will prompt you for names and generate this section.
 agents:
-  jade:
-    path: ~/.autoresearch/agents/jade/
-    auto_compile: true
-    dream_recompile: true
-  katana:
-    path: ~/.autoresearch/agents/katana/
-    auto_compile: true
-    dream_recompile: false
-  magdalena:
-    path: ~/.autoresearch/agents/magdalena/
-    auto_compile: true
-    dream_recompile: false
+  default:
+    path: ~/.autoresearch/agents/default/
+    auto_compile: true       # Compile on ingest
+    dream_recompile: true    # Full recompile during automated cycles
 
 search:
   max_results: 20
@@ -27,6 +21,6 @@ lint:
   suggest_connections: true
 
 llm:
-  provider: "claude-cli"
-  model: "claude-sonnet-4-6"
-  timeout: 120
+  provider: "claude-cli"       # Options: claude-cli, anthropic-api, openai-api
+  model: "claude-sonnet-4-6"   # Model for standalone compilation/queries
+  timeout: 120                 # Seconds per LLM call

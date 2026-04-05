@@ -360,22 +360,44 @@ Before researching a topic, search the wiki first. After learning something new,
 The wiki self-maintains — indexes, backlinks, and topic structure update automatically.
 ```
 
+## Fleet Support
+
+| System | Agent | KB Path | Focus |
+|--------|-------|---------|-------|
+| Claude Code | Jade | `agents/jade/` | Research, architecture, self-improvement |
+| OpenClaw | Simone | `agents/simone/` | Orchestration, decisions, fleet coordination |
+| OpenClaw | Katana | `agents/katana/` | Build patterns, code architecture |
+| OpenClaw | Mileena | `agents/mileena/` | Research synthesis, second opinions |
+| OpenClaw | Aria | `agents/aria/` | Music, creative, JRP patterns |
+| Hermes | Magdalena | `agents/magdalena/` | Communication, relationships, user context |
+| Autonomous | Pi | `agents/pi/` | ML experiments, training patterns |
+
+All paths are relative to `~/.autoresearch/`.
+
 ## Integration with Agent Systems
 
-### Auto-Dream (Claude Code)
-
-Add Phase 2.7 to your auto-dream cycle:
+### Claude Code (Jade Crew)
+- **Skill:** Built-in — Jade's auto-dream Phase 2.7 runs full recompile + lint automatically
+- **Cortex Bridge:** Telemetry feeds into wiki during dream cycles
 ```bash
-python3 ~/.autoresearch/tools/compile.py --agent <name> --full --timeout 600
-python3 ~/.autoresearch/tools/lint.py --agent <name>
+python3 ~/.autoresearch/tools/compile.py --agent jade --full --timeout 600
+python3 ~/.autoresearch/tools/cortex_bridge.py --agent jade
 ```
 
-### Cortex Bridge
+### OpenClaw (Simone, Katana, Mileena, Aria)
+- **Skill:** `~/.openclaw/skills/autoresearch-kb/SKILL.md`
+- **Workspace:** Referenced in AGENTS.md for all OpenClaw agents
+- Agents use their own name: `--agent simone`, `--agent katana`, etc.
 
-If you use the Cortex self-evolution engine, the bridge script ingests telemetry:
-```bash
-python3 ~/.autoresearch/tools/cortex_bridge.py --agent <name>
-```
+### Hermes (Magdalena)
+- **Skill:** `~/.hermes/skills/autoresearch-kb/SKILL.md`
+- **Context:** `~/.hermes/profiles/magdalena/memory/contexts/autoresearch.md`
+- Privacy rule: ingest compiled insights only, never raw messages
+
+### Pi (Autonomous ML Research)
+- **Prompt:** Integrated into Pi's experiment prompt template
+- **Topic:** All ingests use `--topic ml-experiments`
+- Ingests experiment results after each run, searches before designing new ones
 
 ### CI/CD Hook
 
