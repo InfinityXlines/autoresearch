@@ -1,0 +1,32 @@
+version: 1
+shared_wiki_path: ~/shared-memory/wiki/
+
+agents:
+  jade:
+    path: ~/.autoresearch/agents/jade/
+    auto_compile: true
+    dream_recompile: true
+  katana:
+    path: ~/.autoresearch/agents/katana/
+    auto_compile: true
+    dream_recompile: false
+  magdalena:
+    path: ~/.autoresearch/agents/magdalena/
+    auto_compile: true
+    dream_recompile: false
+
+search:
+  max_results: 20
+  snippet_length: 200
+
+lint:
+  check_staleness: true
+  staleness_threshold_days: 30
+  check_orphans: true
+  check_dead_links: true
+  suggest_connections: true
+
+llm:
+  provider: "claude-cli"
+  model: "claude-sonnet-4-6"
+  timeout: 120

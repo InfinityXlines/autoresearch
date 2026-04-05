@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# Autoresearch CLI wrapper
+# Usage: ar <tool> [args...]
+# Example: ar ingest --agent jade --text "hello"
+
+TOOLS_DIR="$(cd "$(dirname "$0")/tools" && pwd)"
+
+if [ -z "$1" ]; then
+    echo "Usage: ar <command> [args...]"
+    echo "Commands: ingest, compile, search, lint, query"
+    exit 1
+fi
+
+TOOL="$1"
+shift
+
+if [ ! -f "$TOOLS_DIR/$TOOL.py" ]; then
+    echo "Unknown command: $TOOL"
+    echo "Available: ingest, compile, search, lint, query"
+    exit 1
+fi
+
+exec python3 "$TOOLS_DIR/$TOOL.py" "$@"

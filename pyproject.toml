@@ -1,0 +1,9 @@
+[project]
+name = "autoresearch"
+version = "0.1.0"
+description = "LLM-powered knowledge base system for multi-agent fleets"
+requires-python = ">=3.11"
+dependencies = ["pyyaml>=6.0"]
+
+[project.scripts]
+ar = "tools.ar:main"
